@@ -1,7 +1,11 @@
 This is a modern, responsive counter application built with React and styled using React-Bootstrap. It goes beyond a basic counter by allowing the user to set a custom step value for standard increment/decrement operations and also includes fields for custom increments or decrements by an arbitrary input value. It also logs every count update to the console using the useEffect hook.
 
+<<<<<<< HEAD
 ✨ Features
 Standard Counter Operations: Increment (+), Decrement (−), and Reset.
+=======
+✨ Features Standard Counter Operations: Increment (+), Decrement (−), and Reset.
+>>>>>>> e9ac71fa0c1c549281572314e946c372fa6dd5dd
 
 Custom Step Value: Change the amount by which the counter increases or decreases on standard operations. (Defaults to 1).
 
@@ -13,8 +17,12 @@ Side Effect Logging: Uses the useEffect hook to log the counter's value to the c
 
 Responsive Design: Styled with React-Bootstrap for a clean, mobile-friendly interface.
 
+<<<<<<< HEAD
 🚀 Usage
 The counter is the main element, prominently displayed at the top.
+=======
+🚀 Usage The counter is the main element, prominently displayed at the top.
+>>>>>>> e9ac71fa0c1c549281572314e946c372fa6dd5dd
 
 Standard Operations:
 
@@ -37,6 +45,7 @@ Click Increment by Input to add 100 to the current count.
 Click Decrement by Input to subtract 100 from the current count.
 
 🧑‍💻 Key React Concepts Used
+<<<<<<< HEAD
 1. useState Hook
 Manages the three core pieces of state: count, step, and input.
 
@@ -52,3 +61,15 @@ Functions like handleStepChange and handleInput ensure the values from the form 
 
 4. React-Bootstrap Components
 Container, Row, Col, Card, Button, Form: Used to structure and style the component, leveraging Bootstrap's grid system and styling utilities.
+=======
+
+useState Hook Manages the three core pieces of state: count, step, and input.
+The setCount(prev => prev + step) syntax ensures the update is based on the latest state value, which is important for accurate arithmetic operations.
+
+useEffect Hook Used to perform a side effect (logging to the console) whenever the count value changes.
+The dependency array [count] ensures the function inside useEffect runs only when count changes, preventing unnecessary re-renders.
+
+Event Handlers Functions like handleStepChange and handleInput ensure the values from the form inputs are correctly parsed as numbers before being stored in the state.
+
+React-Bootstrap Components Container, Row, Col, Card, Button, Form: Used to structure and style the component, leveraging Bootstrap's grid system and styling utilities.
+>>>>>>> e9ac71fa0c1c549281572314e946c372fa6dd5dd
