@@ -1,87 +1,122 @@
-import { useState } from "react";
-import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
-// import { FaInstagram, FaFacebookF, FaLinkedinIn, FaXTwitter, FaHome, FaInfoCircle, FaCogs, FaProjectDiagram, FaBlog, FaEnvelope } from "react-icons/fa";
+import React from "react";
+import "./../style.css";
 
-const NavigationBar = () => {
-    const [expanded, setExpanded] = useState(false);
-
+export default function Header() {
     return (
-        <Navbar
-            expand="xl"
-            fixed="top"
-            expanded={expanded}
-            className="bg-transparent"
-            collapseOnSelect
-        >
-            <Container className="nav-container">
-                <Navbar.Brand href="/">
+        <nav className="navbar fixed-top navbar-expand-xl">
+            <div className="container nav-container">
+
+                
+                <a className="navbar-brand" href="index.html">
                     <img
-                        src="/images/logo/logo-light.png"
+                        src="logo-light.png"
                         alt="Logo"
                         height="40"
                         className="d-none d-lg-block"
                     />
                     <img
-                        src="/images/logo/logo-sm.png"
+                        src="logo-sm.png"
                         alt="Logo"
                         height="40"
                         className="d-lg-none"
                     />
-                </Navbar.Brand>
+                </a>
 
-                <div className="d-xl-none d-flex align-items-center gap-2 ms-auto">
-                    <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                        <div className="icon-back"><FaXTwitter /></div>
+                
+                <div className="d-xl-none d-flex align-items-center justify-content-center social-media gap-2 ms-auto">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <div className="icon-back"><i className="fab fa-x-twitter"></i></div>
                     </a>
-                    <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                        <div className="icon-back"><FaFacebookF /></div>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <div className="icon-back"><i className="fab fa-facebook-f"></i></div>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                        <div className="icon-back"><FaInstagram /></div>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <div className="icon-back"><i className="fab fa-instagram"></i></div>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                        <div className="icon-back"><FaLinkedinIn /></div>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <div className="icon-back"><i className="fab fa-linkedin-in"></i></div>
                     </a>
                 </div>
 
-                <Navbar.Toggle
-                    aria-controls="mainNavbar"
-                    className="border-0 p-0 ms-3"
-                    onClick={() => setExpanded(expanded ? false : true)}
-                />
+                {/* Mobile Menu Button */}
+                <button
+                    className="navbar-toggler collapsed border-0 p-0 ms-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-                <Navbar.Collapse id="mainNavbar">
-                    <Nav className="mx-auto">
-                        <Nav.Link href="/"><FaHome className="me-1" /> Home</Nav.Link>
-                        <NavDropdown title={<span><FaInfoCircle className="me-1" /> About</span>} id="aboutDropdown">
-                            <NavDropdown.Item href="/ourvision.html">Our Vision & Philosophy</NavDropdown.Item>
-                            <NavDropdown.Item href="/expertise.html">Expertise & Experience</NavDropdown.Item>
-                            <NavDropdown.Item href="/clients.html">Client-Centric Approach</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="/services.html"><FaCogs className="me-1" /> Services</Nav.Link>
-                        <Nav.Link href="#project"><FaProjectDiagram className="me-1" /> Projects</Nav.Link>
-                        <Nav.Link href="/blog.html"><FaBlog className="me-1" /> Blog</Nav.Link>
-                        <Nav.Link href="/contact.html"><FaEnvelope className="me-1" /> Contact</Nav.Link>
-                    </Nav>
+                {/* Navigation Links */}
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav mx-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="index.html" aria-current="page">
+                                <i className="fas fa-home me-1"></i>Home
+                            </a>
+                        </li>
 
-                    <div className="d-none d-xl-flex align-items-center gap-3">
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                            <div className="icon-back"><FaXTwitter /></div>
+                        <li className="nav-item dropdown">
+                            <a
+                                className="nav-link dropdown-toggle"
+                                href="/"
+                                data-bs-toggle="dropdown"
+                            >
+                                <i className="fas fa-info-circle me-1"></i> About
+                            </a>
+                            <ul className="dropdown-menu dropdown-menu-lg-center">
+                                <li><a className="dropdown-item" href="ourvision.html">Our Vision & Philosophy</a></li>
+                                <li><a className="dropdown-item" href="expertise.html">Expertise & Experience</a></li>
+                                <li><a className="dropdown-item" href="clients.html">Client-Centric Approach</a></li>
+                            </ul>
+                        </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" href="/services.html">
+                                <i className="fas fa-cogs me-1"></i>Services
+                            </a>
+                        </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" href="#project">
+                                <i className="fas fa-project-diagram me-1"></i>Projects
+                            </a>
+                        </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" href="/blog.html">
+                                <i className="fas fa-blog me-1"></i>Blog
+                            </a>
+                        </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" href="/contact.html">
+                                <i className="fas fa-envelope me-1"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+
+                    {/* Social Icons (Desktop) */}
+                    <div className="d-none d-xl-flex align-items-center mt-lg-0 mt-4 justify-content-center social-media gap-3">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <div className="icon-back"><i className="fab fa-x-twitter"></i></div>
                         </a>
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                            <div className="icon-back"><FaFacebookF /></div>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <div className="icon-back"><i className="fab fa-facebook-f"></i></div>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                            <div className="icon-back"><FaInstagram /></div>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <div className="icon-back"><i className="fab fa-instagram"></i></div>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                            <div className="icon-back"><FaLinkedinIn /></div>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <div className="icon-back"><i className="fab fa-linkedin-in"></i></div>
                         </a>
                     </div>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                </div>
+            </div>
+        </nav>
     );
-};
-
-export default NavigationBar;
+}
