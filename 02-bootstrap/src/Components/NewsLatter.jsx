@@ -2,7 +2,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export default function NewsletterSection() {
     return (
-        <section className="overflow-hidden py-4 bg-light" id="newsletter">
+        <div className="overflow-hidden py-4 bg-light" id="newsletter">
             <Container>
                 <Row className="justify-content-center align-items-center">
 
@@ -44,6 +44,6 @@ export default function NewsletterSection() {
 
                 </Row>
             </Container>
-        </section>
+        </div>
     );
 }

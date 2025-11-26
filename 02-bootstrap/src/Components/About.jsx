@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function AboutSection() {
     return (
-        <section className="section bg-white" id="about">
+        <div className="section bg-white" id="about">
             <Container>
                 <Row className="align-items-center">
 
@@ -73,6 +73,6 @@ export default function AboutSection() {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </div>
     );
 }

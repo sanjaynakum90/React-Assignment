@@ -11,7 +11,7 @@ export default function ServicesSection() {
 
     ]
     return (
-        <section className="section bg-primary-1" id="services">
+        <div className="section bg-primary-1" id="services">
             <Container>
                 <Row className="justify-content-center text-center">
                     <Col md={10} className="mb-4">
@@ -49,6 +49,6 @@ export default function ServicesSection() {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </div>
     );
 }

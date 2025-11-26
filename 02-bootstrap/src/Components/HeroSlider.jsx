@@ -30,7 +30,7 @@ export default function Hero() {
     ];
 
     return (
-        <section className="min-vh-100 hero-section4 position-relative overflow-hidden">
+        <div className="min-vh-100 hero-section4 position-relative overflow-hidden">
             <Carousel fade interval={5000} className="hero4-carousel">
 
                 {slides.map((slide, i) => (
@@ -72,6 +72,6 @@ export default function Hero() {
                 ))}
 
             </Carousel>
-        </section>
+        </div>
     );
 }
