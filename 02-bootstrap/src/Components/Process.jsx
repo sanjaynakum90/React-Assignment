@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function ProcessSection() {
   return (
-    <section className="section bg-light" id="process">
+    <div className="section bg-light" id="process">
       <Container>
         
         <Row className="justify-content-center text-center">
@@ -29,7 +29,7 @@ export default function ProcessSection() {
           </Col>
 
           <Col lg={6} className="offset-lg-1 mb-4">
-            {/* Step 1 */}
+            
             <div className="d-flex align-items-center bg-dark-1 border border-dark-1 rounded-2 p-4 mb-4">
               <div className="bg-dark-1 avatar avatar-md rounded-circle me-3 process-num">
                 <span className="text-dark opacity-50 fw-medium">01</span>
@@ -79,6 +79,6 @@ export default function ProcessSection() {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   );
 }

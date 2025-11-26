@@ -1,9 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const GallerySection = () => {
     return (
-        <section className="section bg-secondary-1 gallery-section">
+        <div className="section bg-secondary-1 gallery-section">
             <Container>
                 <Row className="justify-content-center">
                     <Col lg={10} className="text-center mb-4">
@@ -102,7 +101,7 @@ const GallerySection = () => {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </div>
     );
 };
 

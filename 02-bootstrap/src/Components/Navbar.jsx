@@ -1,5 +1,5 @@
 import React from "react";
-import "./../style.css";
+
 
 export default function Header() {
     return (
@@ -38,7 +38,6 @@ export default function Header() {
                     </a>
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button
                     className="navbar-toggler collapsed border-0 p-0 ms-3"
                     type="button"
@@ -51,7 +50,6 @@ export default function Header() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                {/* Navigation Links */}
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
@@ -100,7 +98,6 @@ export default function Header() {
                         </li>
                     </ul>
 
-                    {/* Social Icons (Desktop) */}
                     <div className="d-none d-xl-flex align-items-center mt-lg-0 mt-4 justify-content-center social-media gap-3">
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             <div className="icon-back"><i className="fab fa-x-twitter"></i></div>

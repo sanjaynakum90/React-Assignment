@@ -1,10 +1,9 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 export default function AboutShowcase() {
     return (
-        <section id="aboutShowcase">
+        <div id="aboutShowcase">
             <Container fluid>
                 <Row className="align-items-stretch justify-content-center">
                    
@@ -47,6 +46,6 @@ export default function AboutShowcase() {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </div>
     );
 }
