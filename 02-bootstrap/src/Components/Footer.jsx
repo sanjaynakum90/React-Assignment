@@ -106,7 +106,7 @@ export default function Footer() {
                     <Col lg={6} className="text-center text-lg-start mb-3 mb-lg-0">
                         <p className="text-white mb-0">
                             <span className="opacity-50">&copy; {new Date().getFullYear()}</span>
-                            <a href="" className="text-light text-decoration-none">Mantraksh Devs</a>
+                            <a href="" className="text-light text-decoration-none">Sanjay Nakum</a>
                             <span className="fw-bold text-white opacity-75">Interilu</span>
                             <span className="opacity-50">- All Rights Reserved. Crafted with</span>
                             <span className="text-danger">❤</span>
