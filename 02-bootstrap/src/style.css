@@ -10,13 +10,27 @@
     background-color: #18130c !important
 }
 
+.bg-light-1 {
+    background-color: rgba(248, 249, 250, .1) !important
+}
+
+
+.bg-dark-1 {
+    background-color: rgba(24, 19, 12, .1) !important
+}
+
+.bg-primary-1 {
+    background-color: rgba(173, 129, 82, .1) !important
+}
+
 .navbar {
     transition: all .3s ease-in-out;
     padding: 0
 }
+
 .navbar-rounded {
-  border-radius: 20px;
-  margin-top: 15px;
+    border-radius: 20px;
+    margin-top: 15px;
 }
 
 .navbar-flat {
@@ -25,7 +39,7 @@
     margin: 0 !important;
     transition: all 0.35s ease;
     background: rgba(0, 0, 0, 0.95);
-   
+
 }
 
 .navbar .nav-container {
@@ -103,8 +117,7 @@
     width: 100%;
     opacity: 1;
     background-position: 100% 0;
-    box-shadow: 0 0 10px #ad8152
-    , 0 0 20px rgba(173, 129, 82, .5)
+    box-shadow: 0 0 10px #ad8152, 0 0 20px rgba(173, 129, 82, .5)
 }
 
 .navbar .navbar-collapse .navbar-nav .dropdown .dropdown-menu {

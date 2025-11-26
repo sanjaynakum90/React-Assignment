@@ -9,7 +9,7 @@ export default function AboutShowcase() {
                    
                     <Col md={4} xs={12} className="p-0 text-center">
                         <div className="bg-primary-1 p-5 h-100 w-100">
-                            <div className="bg-dark text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
+                            <div className="bg-dark-1 text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
                                 <i className="fas fa-lightbulb"></i>
                             </div>
                             <h2 className="text-dark aboutTitle">Our Vision & Philosophy</h2>
@@ -21,11 +21,11 @@ export default function AboutShowcase() {
 
                     
                     <Col md={4} xs={12} className="p-0 text-center">
-                        <div className="bg-light p-5 h-100 w-100">
-                            <div className="bg-dark text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
+                        <div className="bg-dark-1 p-5 h-100 w-100">
+                            <div className="bg-dark-1 text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
                                 <i className="fas fa-award"></i>
                             </div>
-                            <h2 className="text-dark aboutTitle">Expertise & Experience</h2>
+                            <h2 className="text-dark-1 aboutTitle">Expertise & Experience</h2>
                             <p className="text-muted description">
                                 With over 15 years of experience, we create beautiful and functional spaces tailored to your needs and preferences. We'll work with you to craft a space that exceeds your expectations.
                             </p>
@@ -35,7 +35,7 @@ export default function AboutShowcase() {
                     
                     <Col md={4} xs={12} className="p-0 text-center">
                         <div className="bg-primary-1 p-5 h-100 w-100">
-                            <div className="bg-dark text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
+                            <div className="bg-dark-1 text-center text-primary-1 avatar avatar-md rounded-circle mb-4 icon mx-auto p-3">
                                 <i className="fas fa-user"></i>
                             </div>
                             <h2 className="text-dark aboutTitle">Client-Centric Approach / Unique Value</h2>
