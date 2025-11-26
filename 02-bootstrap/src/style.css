@@ -32,7 +32,7 @@
     background-color: rgba(24, 19, 12, .6);
     padding: 10px 24px;
     backdrop-filter: blur(20px);
-    border-radius: 20px;
+    border-radius: 1rem;
     /* border-bottom-left-radius: 1rem; */
     /* border-bottom-right-radius: 1rem; */
     border: 1px solid rgba(255, 255, 255, .1)
@@ -103,7 +103,8 @@
     width: 100%;
     opacity: 1;
     background-position: 100% 0;
-    box-shadow: 0 0 10px #ad8152, 0 0 20px rgba(173, 129, 82, .5)
+    box-shadow: 0 0 10px #ad8152
+    , 0 0 20px rgba(173, 129, 82, .5)
 }
 
 .navbar .navbar-collapse .navbar-nav .dropdown .dropdown-menu {
