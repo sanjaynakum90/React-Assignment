@@ -3,8 +3,9 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import "./../style.css";
 
 export default function Header() {
+    const social = ["x-twitter", "facebook-f", "instagram", "linkedin-in"]
     return (
-        <Navbar expand="xl" fixed="top" className="navbar-dark bg-dark">
+        <Navbar expand="xl" fixed="top" className="navbar-dark bg-transparent">
             <Container className="nav-container">
                 <a className="navbar-brand" href="/">
                     <img
@@ -23,7 +24,7 @@ export default function Header() {
 
 
                 <div className="d-xl-none d-flex align-items-center social-media gap-2 ms-auto">
-                    {["x-twitter", "facebook-f", "instagram", "linkedin-in"].map((icon, i) => (
+                    {social.map((icon, i) => (
                         <a key={i} href="#" className="text-decoration-none">
                             <div className="icon-back">
                                 <i className={`fab fa-${icon}`}></i>
@@ -74,7 +75,7 @@ export default function Header() {
                         </Nav.Link>
                     </Nav>
                     <div className="d-none d-xl-flex align-items-center social-media gap-3">
-                        {["x-twitter", "facebook-f", "instagram", "linkedin-in"].map((icon, i) => (
+                        {social.map((icon, i) => (
                             <a key={i} href="#" className="text-decoration-none">
                                 <div className="icon-back">
                                     <i className={`fab fa-${icon}`}></i>
