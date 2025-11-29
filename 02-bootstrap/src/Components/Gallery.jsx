@@ -1,6 +1,68 @@
 import { Container, Row, Col } from "react-bootstrap";
 
 const GallerySection = () => {
+    const gallery = [
+        {
+            size: "medium",
+            img: "img-1.jpg",
+            title: "Modern Living Room",
+            desc: "Elegant design with natural lighting",
+        },
+        {
+            size: "small",
+            img: "img-2.jpg",
+            title: "Cozy Bedroom",
+            desc: "Warm and inviting atmosphere",
+        },
+        {
+            size: "large",
+            img: "img-7.jpg",
+            title: "Luxury Kitchen",
+            desc: "Modern design with premium finishes",
+        },
+        {
+            size: "medium",
+            img: "img-4.jpg",
+            title: "Elegant Dining",
+            desc: "Perfect for family gatherings",
+        },
+        {
+            size: "medium",
+            img: "img-5.jpg",
+            title: "Chic Bathroom",
+            desc: "Luxury spa-like experience",
+        },
+        {
+            size: "small",
+            img: "img-6.jpg",
+            title: "Minimalist Office",
+            desc: "Productivity meets style",
+        },
+        {
+            size: "large",
+            img: "img-11.jpg",
+            title: "Modern Apartment",
+            desc: "Urban living redefined",
+        },
+        {
+            size: "medium",
+            img: "img-8.jpg",
+            title: "Luxury Bedroom",
+            desc: "Your personal retreat",
+        },
+        {
+            size: "small",
+            img: "img-9.jpg",
+            title: "Stylish Lounge",
+            desc: "Perfect for relaxation",
+        },
+        {
+            size: "small",
+            img: "img-10.jpg",
+            title: "Stylish Lounge",
+            desc: "Perfect for relaxation",
+        },
+    ]
     return (
         <div className="section bg-secondary-1 gallery-section">
             <Container>
@@ -20,69 +82,8 @@ const GallerySection = () => {
 
                     <Col xs={12} className="mb-5">
                         <div className="gallery-masonry masonry-grid">
-                            
-                            {[
-                                {
-                                    size: "medium",
-                                    img: "img-1.jpg",
-                                    title: "Modern Living Room",
-                                    desc: "Elegant design with natural lighting",
-                                },
-                                {
-                                    size: "small",
-                                    img: "img-2.jpg",
-                                    title: "Cozy Bedroom",
-                                    desc: "Warm and inviting atmosphere",
-                                },
-                                {
-                                    size: "large",
-                                    img: "img-7.jpg",
-                                    title: "Luxury Kitchen",
-                                    desc: "Modern design with premium finishes",
-                                },
-                                {
-                                    size: "medium",
-                                    img: "img-4.jpg",
-                                    title: "Elegant Dining",
-                                    desc: "Perfect for family gatherings",
-                                },
-                                {
-                                    size: "medium",
-                                    img: "img-5.jpg",
-                                    title: "Chic Bathroom",
-                                    desc: "Luxury spa-like experience",
-                                },
-                                {
-                                    size: "small",
-                                    img: "img-6.jpg",
-                                    title: "Minimalist Office",
-                                    desc: "Productivity meets style",
-                                },
-                                {
-                                    size: "large",
-                                    img: "img-11.jpg",
-                                    title: "Modern Apartment",
-                                    desc: "Urban living redefined",
-                                },
-                                {
-                                    size: "medium",
-                                    img: "img-8.jpg",
-                                    title: "Luxury Bedroom",
-                                    desc: "Your personal retreat",
-                                },
-                                {
-                                    size: "small",
-                                    img: "img-9.jpg",
-                                    title: "Stylish Lounge",
-                                    desc: "Perfect for relaxation",
-                                },
-                                {
-                                    size: "small",
-                                    img: "img-10.jpg",
-                                    title: "Stylish Lounge",
-                                    desc: "Perfect for relaxation",
-                                },
-                            ].map((item, index) => (
+
+                            {gallery.map((item, index) => (
                                 <div key={index} className={`masonry-item ${item.size}`}>
                                     <img src={item.img} alt={item.title} className="masonry-img" />
                                     <div className="masonry-overlay">
