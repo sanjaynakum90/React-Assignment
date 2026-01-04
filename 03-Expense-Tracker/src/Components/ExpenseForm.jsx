@@ -1,85 +1,96 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
+import { useState } from "react";
+import { Row, Col, Form, Button, Card, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux"
 
 
 const ExpenseForm = () => {
+
+    const dispatch = useDispatch()
+
+    const [input, setInput] = useState({
+        title: "",
+        amount: "",
+        type: "debit",
+        category: "",
+    });
+
+
+    const handleChange = (identifire, e) => {
+        setInput({
+            ...input,
+            [identifire]: e.target.value
+        })
+
+    }
+
+    const handleSubmit = () => {
+        e.prevntDefault()
+
+
+
+        setInput({ title: "", amount: "", type: "debit", category: "" });
+    }
+
+
+
     return (
         <>
-            <Form className='m-4'>
-                <Row className="mb-3">
-                    <Form.Group as={Col} md="4" >
-                        <Form.Label>First name</Form.Label>
-                        <Form.Control
-                            required
-                            type="text"
-                            placeholder="First name"
-                            defaultValue="Mark"
-                        />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group as={Col} md="4" >
-                        <Form.Label>Last name</Form.Label>
-                        <Form.Control
-                            required
-                            type="text"
-                            placeholder="Last name"
-                            defaultValue="Otto"
-                        />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group as={Col} md="4" >
-                        <Form.Label>Username</Form.Label>
-                        <InputGroup hasValidation>
-                            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                            <Form.Control
-                                type="text"
-                                placeholder="Username"
-                                aria-describedby="inputGroupPrepend"
-                                required
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please choose a username.
-                            </Form.Control.Feedback>
-                        </InputGroup>
-                    </Form.Group>
-                </Row>
-                <Row className="mb-3">
-                    <Form.Group as={Col} md="6" >
-                        <Form.Label>City</Form.Label>
-                        <Form.Control type="text" placeholder="City" required />
-                        <Form.Control.Feedback type="invalid">
-                            Please provide a valid city.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group as={Col} md="3" >
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" placeholder="State" required />
-                        <Form.Control.Feedback type="invalid">
-                            Please provide a valid state.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group as={Col} md="3" >
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control type="text" placeholder="Zip" required />
-                        <Form.Control.Feedback type="invalid">
-                            Please provide a valid zip.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                </Row>
-                <Form.Group className="mb-3">
-                    <Form.Check
-                        required
-                        label="Agree to terms and conditions"
-                        feedback="You must agree before submitting."
-                        feedbackType="invalid"
-                    />
-                </Form.Group>
-                <Button type="submit">Submit form</Button>
-            </Form>
+            <Container className="mt-4 p-4">
+                <Row>
+                    <Col md={12}>
+                        <Card md={12} className="p-4 shadow-lg mb-4">
+                            <h4 className="mb-3"> Add Expense</h4>
+                            <Form onSubmit={handleSubmit}>
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Title</Form.Label>
+                                    <Form.Control
+                                        value={input.title}
+                                        onChange={(e) => handleChange("title", e)}
+                                    />
+                                </Form.Group>
 
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Amount</Form.Label>
+                                    <Form.Control
+                                        type="number"
+                                        value={input.amount}
+                                        onChange={(e) => handleChange("amount", e)}
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Type</Form.Label>
+                                    <Form.Select
+                                        value={input.type}
+                                        onChange={(e) => handleChange("type", e)}
+                                    >
+                                        <option value="debit">Debit</option>
+                                        <option value="credit">Credit</option>
+                                    </Form.Select>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Category</Form.Label>
+                                    <Form.Select
+                                        value={input.category}
+                                        onChange={(e) => handleChange("category", e)}
+                                    >
+                                        <option value="">Select</option>
+                                        <option value="general">General</option>
+                                        <option value="travel">Travel</option>
+                                        <option value="food">Food</option>
+                                        <option value="shopping">Shopping</option>
+                                    </Form.Select>
+                                </Form.Group>
+
+                                <Button type="submit" variant="primary" className="w-100">
+                                    Add
+                                </Button>
+                            </Form>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }

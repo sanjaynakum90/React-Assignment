@@ -6,10 +6,21 @@ const initialState = {
     loading: true,
 }
 
+const saveToLocalStorage = (state) => {
+    localStorage.setItem("expenses", JSON.stringify(state.expense));
+};
+
+
 const expense = createSlice({
     name: "expense",
     initialState,
     reducers: {
+        addExpense: {
+            reducer(state, action) {
+                state.expense.push(action.payload)
+                saveToLocalStorage(state)
+            }
+        }
 
     }
 
