@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Row, Col, Form, Button, Card, Container } from "react-bootstrap";
-import { useDispatch } from "react-redux"
-
+import { useEffect, useState } from "react";
+import { Form, Button, Card, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addExpense, updateExpense } from "../features/Expense/expenseSlice";
 
 const ExpenseForm = () => {
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const editItem = useSelector((state) => state.expense.editItem);
 
     const [input, setInput] = useState({
         title: "",
@@ -14,85 +14,89 @@ const ExpenseForm = () => {
         category: "",
     });
 
+    useEffect(() => {
+        if (editItem) {
+            setInput(editItem);
+        }
+    }, [editItem]);
 
-    const handleChange = (identifire, e) => {
+    const handleChange = (key, e) => {
         setInput({
             ...input,
-            [identifire]: e.target.value
-        })
 
-    }
+            [key]: e.target.value
+        });
+    };
 
-    const handleSubmit = () => {
-        e.prevntDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (editItem) {
+            dispatch(
+                updateExpense({
+                    ...input,
+                    amount: Number(input.amount),
+                })
+            )
+        }
+        else {
+            dispatch(
+                addExpense({
+                    title: input.title,
+                    amount: Number(input.amount),
+                    type: input.type,
+                    category: input.category,
+                })
+            );
+        }
 
 
 
         setInput({ title: "", amount: "", type: "debit", category: "" });
-    }
-
-
+    };
 
     return (
-        <>
-            <Container className="mt-4 p-4">
-                <Row>
-                    <Col md={12}>
-                        <Card md={12} className="p-4 shadow-lg mb-4">
-                            <h4 className="mb-3"> Add Expense</h4>
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Title</Form.Label>
-                                    <Form.Control
-                                        value={input.title}
-                                        onChange={(e) => handleChange("title", e)}
-                                    />
-                                </Form.Group>
+        <Container className="mt-4">
+            <Card className="p-4 shadow">
+                <h4>{editItem ? "Edit Expense" : "Add Expense"}</h4>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Amount</Form.Label>
-                                    <Form.Control
-                                        type="number"
-                                        value={input.amount}
-                                        onChange={(e) => handleChange("amount", e)}
-                                    />
-                                </Form.Group>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control value={input.title} onChange={(e) => handleChange("title", e)} required />
+                    </Form.Group>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Type</Form.Label>
-                                    <Form.Select
-                                        value={input.type}
-                                        onChange={(e) => handleChange("type", e)}
-                                    >
-                                        <option value="debit">Debit</option>
-                                        <option value="credit">Credit</option>
-                                    </Form.Select>
-                                </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Amount</Form.Label>
+                        <Form.Control type="number" value={input.amount} onChange={(e) => handleChange("amount", e)} required />
+                    </Form.Group>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Category</Form.Label>
-                                    <Form.Select
-                                        value={input.category}
-                                        onChange={(e) => handleChange("category", e)}
-                                    >
-                                        <option value="">Select</option>
-                                        <option value="general">General</option>
-                                        <option value="travel">Travel</option>
-                                        <option value="food">Food</option>
-                                        <option value="shopping">Shopping</option>
-                                    </Form.Select>
-                                </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Type</Form.Label>
+                        <Form.Select value={input.type} onChange={(e) => handleChange("type", e)}>
+                            <option value="debit">Debit</option>
+                            <option value="credit">Credit</option>
+                        </Form.Select>
+                    </Form.Group>
 
-                                <Button type="submit" variant="primary" className="w-100">
-                                    Add
-                                </Button>
-                            </Form>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    )
-}
+                    <Form.Group className="mb-3">
+                        <Form.Label>Category</Form.Label>
+                        <Form.Select value={input.category} onChange={(e) => handleChange("category", e)} required >
+                            <option value="">Select</option>
+                            <option value="general">General</option>
+                            <option value="travel">Travel</option>
+                            <option value="food">Food</option>
+                            <option value="shopping">Shopping</option>
+                        </Form.Select>
+                    </Form.Group>
 
-export default ExpenseForm
+                    <Button type="submit" className="w-100">
+                        {editItem ? "Update Expense" : "Add Expense"}
+                    </Button>
+                </Form>
+            </Card>
+        </Container>
+    );
+};
+
+export default ExpenseForm;

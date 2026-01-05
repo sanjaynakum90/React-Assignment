@@ -1,29 +1,59 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, } from "@reduxjs/toolkit";
 
-
-const initialState = {
-    expense: [],
-    loading: true,
-}
+const saveLocalStorage = () => {
+    const data = localStorage.getItem("expenses");
+    return data ? JSON.parse(data) : [];
+};
 
 const saveToLocalStorage = (state) => {
     localStorage.setItem("expenses", JSON.stringify(state.expense));
 };
 
+const initialState = {
+    expense: saveLocalStorage(),
+    editItem: null,
+};
 
-const expense = createSlice({
+const expenseSlice = createSlice({
     name: "expense",
     initialState,
     reducers: {
         addExpense: {
             reducer(state, action) {
-                state.expense.push(action.payload)
-                saveToLocalStorage(state)
+                state.expense.push(action.payload);
+                saveToLocalStorage(state);
+            },
+            prepare(data) {
+                return {
+                    payload: {
+                        ...data,
+                    },
+                };
+            },
+        },
+
+        deleteExpense(state, action) {
+            state.expense = state.expense.filter(
+                (item) => item.id !== action.payload
+            );
+            saveToLocalStorage(state);
+        },
+
+        setEditExpense(state, action) {
+            state.editItem = action.payload;
+        },
+
+        updateExpense(state, action) {
+            const index = state.expense.findIndex((item) => item.id === action.payload.id);
+            if (index !== -1) {
+                state.expense[index] = action.payload;
+                state.editItem = null;
+                saveToLocalStorage(state);
             }
-        }
+        },
+    },
+});
 
-    }
+export const { addExpense, deleteExpense, setEditExpense, updateExpense, } = expenseSlice.actions;
 
-})
-
-export default expense.reducer
+export default expenseSlice.reducer;

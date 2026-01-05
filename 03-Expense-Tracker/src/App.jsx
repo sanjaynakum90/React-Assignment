@@ -1,5 +1,6 @@
 import React from 'react'
 import ExpenseForm from './Components/ExpenseForm'
+import ExpenseList from './Components/ExpenseList'
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
         <h1>Expense Tarcker</h1>
       </div>
       <ExpenseForm />
+      <ExpenseList />
 
     </>
   )
