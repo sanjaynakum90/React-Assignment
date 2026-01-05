@@ -22,14 +22,7 @@ const expenseSlice = createSlice({
             reducer(state, action) {
                 state.expense.push(action.payload);
                 saveToLocalStorage(state);
-            },
-            prepare(data) {
-                return {
-                    payload: {
-                        ...data,
-                    },
-                };
-            },
+            }
         },
 
         deleteExpense(state, action) {

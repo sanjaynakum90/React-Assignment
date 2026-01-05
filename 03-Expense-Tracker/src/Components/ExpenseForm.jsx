@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Card, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense, updateExpense } from "../features/Expense/expenseSlice";
+
+import { Form, Button, Card, Container } from "react-bootstrap";
 
 const ExpenseForm = () => {
     const dispatch = useDispatch();
@@ -34,9 +35,8 @@ const ExpenseForm = () => {
         if (editItem) {
             dispatch(
                 updateExpense({
-                    ...input,
-                    amount: Number(input.amount),
-                })
+                ...input,
+            })
             )
         }
         else {
@@ -49,8 +49,6 @@ const ExpenseForm = () => {
                 })
             );
         }
-
-
 
         setInput({ title: "", amount: "", type: "debit", category: "" });
     };

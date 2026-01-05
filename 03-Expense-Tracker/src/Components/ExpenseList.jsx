@@ -6,7 +6,6 @@ const ExpenseList = () => {
     const dispatch = useDispatch();
     const expenses = useSelector((state) => state.expense.expense);
 
-    console.log("expenses", expenses);
 
     return (
         <Container className="my-4">
