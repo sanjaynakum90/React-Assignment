@@ -12,7 +12,7 @@ const ExpenseList = () => {
             <h3>Expense List</h3>
 
             <Table striped bordered hover responsive>
-                <thead>
+                <thead className="table-dark">
                     <tr>
                         <th>Title</th>
                         <th>Amount</th>
