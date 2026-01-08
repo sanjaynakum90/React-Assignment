@@ -53,7 +53,7 @@ function App() {
 
       <Table striped bordered hover>
         <thead>
-          <tr>
+          <tr className="table-dark">
             <th>#</th>
             <th>Name</th>
             <th>GR ID</th>
@@ -65,7 +65,7 @@ function App() {
             <tr key={student.id}>
               <td>{index + 1}</td>
               <td>{student.name}</td>
-              <td>{student.grId}</td>
+              <td>{student.id}</td>
               <td>{student.course}</td>
             </tr>
           ))}
