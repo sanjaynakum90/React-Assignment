@@ -21,13 +21,18 @@ function App() {
 
 
   const filteredList = students.filter((student) =>
+
     student.name.toLowerCase().includes(studentQuery.search.toLowerCase())
+
   );
+
 
   const sortedList = [...filteredList].sort((a, b) => {
     if (studentQuery.filter === "asc") return a.id - b.id;
+
     if (studentQuery.filter === "desc") return b.id - a.id;
-    return 0;
+
+    return ;
   });
 
   return (
@@ -35,16 +40,9 @@ function App() {
       <h2 className="text-center mb-4">Student Management</h2>
 
       <form className="d-flex gap-2 mb-3">
-        <Form.Control
-          placeholder="Search by student name..."
-          value={studentQuery.search}
-          onChange={(e) => handleChange("search", e)}
-        />
+        <Form.Control placeholder="Search by student name..." value={studentQuery.search} onChange={(e) => handleChange("search", e)}/>
 
-        <Form.Select
-          value={studentQuery.filter}
-          onChange={(e) => handleChange("filter", e)}
-        >
+        <Form.Select value={studentQuery.filter} onChange={(e) => handleChange("filter", e)}>
           <option value="">Sort by ID</option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
