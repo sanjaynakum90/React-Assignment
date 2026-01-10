@@ -1,8 +1,13 @@
 import React from 'react'
+import ProductForm from './Components/ProductForm'
+import ProductList from './Components/ProductList'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <ProductForm />
+      <ProductList />
+    </>
   )
 }
 
