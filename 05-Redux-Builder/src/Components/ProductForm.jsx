@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProduct,  updateProductData } from "../features/product/productSlice"
+import { addProduct, updateProductData } from "../features/product/productSlice"
 
 import { Container, Row, Col, Form, Card, Button } from "react-bootstrap"
 
 const ProductForm = () => {
 
-    const updateState = useSelector((state) => state.product.updateState)
+    const updateState = useSelector((state) => state.Product.updateState)
 
     const [product, setProduct] = useState({
         Name: "",
@@ -20,7 +20,7 @@ const ProductForm = () => {
 
     useEffect(() => {
         if (updateState) {
-            setProduct(updateState)
+            setProduct(updateState);
         }
     }, [updateState])
 
@@ -82,7 +82,7 @@ const ProductForm = () => {
                             </Form.Group>
                             <div className="text-center">
                                 <Button type='submit' className='btn btn-primary '>
-                                    {updateState ?"Update":"Add Product"}
+                                    {updateState ? "Update" : "Add Product"}
                                 </Button>
                             </div>
                         </form>
