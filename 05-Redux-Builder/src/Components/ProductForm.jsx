@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProduct } from "../features/product/productSlice"
+import { addProduct,  updateProductData } from "../features/product/productSlice"
 
 import { Container, Row, Col, Form, Card, Button } from "react-bootstrap"
 
 const ProductForm = () => {
 
-    const Products = useSelector((state) => state.Product.product)
+    const updateState = useSelector((state) => state.product.updateState)
 
     const [product, setProduct] = useState({
         Name: "",
@@ -17,6 +17,12 @@ const ProductForm = () => {
     })
 
     const Dispatch = useDispatch()
+
+    useEffect(() => {
+        if (updateState) {
+            setProduct(updateState)
+        }
+    }, [updateState])
 
     const handleChange = (identiFier, e) => {
         setProduct((prev) => {
@@ -31,15 +37,23 @@ const ProductForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        Dispatch(
-            addProduct({
-                id: new Date().getTime(),
-                ...product
-            })
-        )
-        setProduct({ Name: "", Price: "", Quantity: "", Category: "" });
+        if (updateState) {
+            Dispatch(updateProductData(product))
 
-        alert("product added");
+            setProduct({ Name: "", Price: "", Quantity: "", Category: "" });
+        } else {
+
+            Dispatch(
+                addProduct({
+                    id: new Date().getTime(),
+                    ...product
+                })
+            )
+            setProduct({ Name: "", Price: "", Quantity: "", Category: "" });
+
+            alert("product added");
+        }
+
     }
 
 
@@ -68,7 +82,7 @@ const ProductForm = () => {
                             </Form.Group>
                             <div className="text-center">
                                 <Button type='submit' className='btn btn-primary '>
-                                    Add Product
+                                    {updateState ?"Update":"Add Product"}
                                 </Button>
                             </div>
                         </form>
