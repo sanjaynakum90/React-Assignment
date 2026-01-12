@@ -16,7 +16,7 @@ const product = createSlice({
 
             state.product.push(action.payload);
 
-            // console.log("product", [...state.product]);
+            console.log("product", [...state.product]);
 
         },
 
@@ -38,9 +38,8 @@ const product = createSlice({
 
 
         deleteProduct: (state, action) => {
-            state.product = state.product.filter((prod) => {
-                prod.id !== action.payload
-            })
+     
+            state.product = state.product.filter((prod)=>prod.id !== action.payload)
         }
 
 

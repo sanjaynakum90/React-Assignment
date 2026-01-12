@@ -12,6 +12,9 @@ const ProductList = () => {
 
     const Products = useSelector((state) => state.Product.product)
 
+
+    console.log("peo",Products)
+
     const Dispatch = useDispatch()
 
     console.log("data", Products);
