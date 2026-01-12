@@ -3,18 +3,18 @@ import { Container, Table, Form } from "react-bootstrap";
 import studentsData from "./StudentData";
 
 function App() {
-  const [students] = useState(studentsData);
+  const [students ] = useState(studentsData);
 
   const [studentQuery, setStudentQuery] = useState({
     search: "",
     filter: "",
   });
 
-  const handleChange = (identifire, e) => {
+  const handleChange = (identifier, e) => {
     setStudentQuery(
       {
         ...studentQuery,
-        [identifire]: e.target.value
+        [identifier]: e.target.value
       }
     );
   };
