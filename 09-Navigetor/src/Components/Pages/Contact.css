@@ -1,0 +1,37 @@
+.contact-page {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 15px;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  min-width: 30px;
+}
+
+.contact-info-item h6 {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-info-item p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.social-links-contact a {
+  transition: opacity 0.3s ease;
+}
+
+.social-links-contact a:hover {
+  opacity: 0.7;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
